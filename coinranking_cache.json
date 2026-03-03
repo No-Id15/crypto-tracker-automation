@@ -1,0 +1,134 @@
+{
+  "ETH": {
+    "uuid": "razxDUgYGNAdQ",
+    "logo": "https://cdn.coinranking.com/rk4RKHOuW/eth.svg"
+  },
+  "BTC": {
+    "uuid": "Qwsogvtv82FCd",
+    "logo": "https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg"
+  },
+  "EGLD": {
+    "uuid": "omwkOTglq",
+    "logo": "https://cdn.coinranking.com/Q1fpM2p0d/MultiversX.png"
+  },
+  "LTC": {
+    "uuid": "D7B1x_ks7WhV5",
+    "logo": "https://cdn.coinranking.com/BUvPxmc9o/ltcnew.svg"
+  },
+  "USDT": {
+    "uuid": "HIVsRcGKkPFtW",
+    "logo": "https://cdn.coinranking.com/iqfxcAEV1/tether-usd-usdt.svg"
+  },
+  "PEPE": {
+    "uuid": "03WI8NQPF",
+    "logo": "https://cdn.coinranking.com/_W7T8D0wp/24478.png"
+  },
+  "XMR": {
+    "uuid": "3mVx2FX_iJFp5",
+    "logo": "https://cdn.coinranking.com/Syz-oSd_Z/xmr.svg"
+  },
+  "DOT": {
+    "uuid": "25W7FG7om",
+    "logo": "https://cdn.coinranking.com/V3NSSybv-/polkadot-dot.svg"
+  },
+  "LEO": {
+    "uuid": "mqtUpyBxu8O8",
+    "logo": "https://cdn.coinranking.com/DWwgJHgyl/3957.png"
+  },
+  "HBAR": {
+    "uuid": "jad286TjB",
+    "logo": "https://cdn.coinranking.com/dSCnSLilQ/hedera.svg"
+  },
+  "HYPE": {
+    "uuid": "T9v5S3hJw",
+    "logo": "https://cdn.coinranking.com/0h9Yk9J4t/hyperliquid.png"
+  },
+  "FARTCOIN": {
+    "uuid": "VDSp0_jlF",
+    "logo": "https://cdn.coinranking.com/mWrHIRttj/fart.png"
+  },
+  "BNB": {
+    "uuid": "WcwrkfNI4FUAe",
+    "logo": "https://cdn.coinranking.com/a3k98K77d/1839.png"
+  },
+  "SOL": {
+    "uuid": "zNZHO_Sjf",
+    "logo": "https://cdn.coinranking.com/iImvX5-OG/5426.png"
+  },
+  "SHIB": {
+    "uuid": "xz24e0BjL",
+    "logo": "https://cdn.coinranking.com/fiZ4HfnRR/shib.png"
+  },
+  "XLM": {
+    "uuid": "f3iaFeCKEmkaZ",
+    "logo": "https://cdn.coinranking.com/fth06Jh5X/512.png"
+  },
+  "DOGE": {
+    "uuid": "a91GCGd_u96cF",
+    "logo": "https://cdn.coinranking.com/y5o-eHss1/74.png"
+  },
+  "ADA": {
+    "uuid": "qzawljRxB5bYu",
+    "logo": "https://cdn.coinranking.com/TewazIdz-/2010.png"
+  },
+  "TON": {
+    "uuid": "67YlI0K1b",
+    "logo": "https://cdn.coinranking.com/tFLn7zQsk/11419.png"
+  },
+  "TRX": {
+    "uuid": "qUhEFk1I61atv",
+    "logo": "https://cdn.coinranking.com/gpbIR2aMf/1958.png"
+  },
+  "KAS": {
+    "uuid": "V8GxkwWow",
+    "logo": "https://cdn.coinranking.com/8JltIp1eX/kaspa.png"
+  },
+  "SAND": {
+    "uuid": "pxtKbG5rg",
+    "logo": "https://cdn.coinranking.com/kd_vwOcnI/sandbox.png"
+  },
+  "MANA": {
+    "uuid": "tEf7-dnwV3BXS",
+    "logo": "https://cdn.coinranking.com/ph_svUzXs/decentraland(1).svg"
+  },
+  "FXS": {
+    "uuid": "3nNpuxHJ8",
+    "logo": "https://cdn.coinranking.com/_UuWZ5htj/FS.png"
+  },
+  "XRP": {
+    "uuid": "-l8Mn2pVlRs-p",
+    "logo": "https://cdn.coinranking.com/B1oPuTyfX/xrp.svg"
+  },
+  "ARB": {
+    "uuid": "1Uo6s62Oc",
+    "logo": "https://cdn.coinranking.com/i_60equhH/11841.png"
+  },
+  "MATIC": {
+    "uuid": "uW2tk-ILY0ii",
+    "logo": "https://cdn.coinranking.com/BHenMNMiT/3890.png"
+  },
+  "AVAX": {
+    "uuid": "dvUj0CzDZ",
+    "logo": "https://cdn.coinranking.com/S0C6Cw2-w/avax-avalanche.png"
+  },
+  "LINK": {
+    "uuid": "VLqpJwogdhHNb",
+    "logo": "https://cdn.coinranking.com/gwWUf1kp4/1975.png"
+  },
+  "OP": {
+    "uuid": "n1p-s_gm1",
+    "logo": "https://cdn.coinranking.com/GaG3fv_rq/11840.png"
+  },
+  "NEAR": {
+    "uuid": "DCrsaMv68",
+    "logo": "https://cdn.coinranking.com/ixGfi5FAg/6535.png"
+  },
+  "ATOM": {
+    "uuid": "Knsels4_Ol-Ny",
+    "logo": "https://cdn.coinranking.com/HJzHboruM/atom.svg"
+  },
+  "UNI": {
+    "uuid": "_H5FVG9iW",
+    "logo": "https://cdn.coinranking.com/Q2Nrd4TZF/7083.png"
+  }
+}
