@@ -1,9 +1,9 @@
+
 name: Run Crypto Notion Sync
 
 on:
   schedule:
-    - cron: '*/10 0-9 * * *'   # Every 10 mins from 00:00–09:59 UTC
-    - cron: '*/10 15-23 * * *' # Every 10 mins from 15:00–23:59 UTC
+    - cron: '*/5 * * * *'  # Every 5 minutes, 24/7
   workflow_dispatch:
 
 jobs:
@@ -19,9 +19,11 @@ jobs:
         with:
           path: |
             coinranking_cache.json
-            coingecko_list_cache.json          key: crypto-cache-${{ github.run_number }}
+            coingecko_list_cache.json
+          key: crypto-cache-${{ github.run_number }}
           restore-keys: |
             crypto-cache-
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -32,23 +34,26 @@ jobs:
 
       - name: Run script
         env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN || '' }}
-          DB_TRADING_HISTORY_ID: ${{ secrets.DB_TRADING_HISTORY_ID || '' }}
-          DB_DAILY_TRACKER_ID: ${{ secrets.DB_DAILY_TRACKER_ID || '' }}
-          DB_WEEKLY_TRACKER_ID: ${{ secrets.DB_WEEKLY_TRACKER_ID || '' }}
-          DB_MONTHLY_TRACKER_ID: ${{ secrets.DB_MONTHLY_TRACKER_ID || '' }}
-          COINRANKING_API_KEY: ${{ secrets.COINRANKING_API_KEY || '' }}
-          NOTION_TOGGLE_BLOCK_ID: ${{ secrets.NOTION_TOGGLE_BLOCK_ID || '' }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          DB_TRADING_HISTORY_ID: ${{ secrets.DB_TRADING_HISTORY_ID }}
+          DB_ACCOUNTS_ID: ${{ secrets.DB_ACCOUNTS_ID }}
+          DB_DAILY_TRACKER_ID: ${{ secrets.DB_DAILY_TRACKER_ID }}
+          DB_WEEKLY_TRACKER_ID: ${{ secrets.DB_WEEKLY_TRACKER_ID }}
+          DB_MONTHLY_TRACKER_ID: ${{ secrets.DB_MONTHLY_TRACKER_ID }}
+          COINRANKING_API_KEY: ${{ secrets.COINRANKING_API_KEY }}
+          NOTION_TOGGLE_BLOCK_ID: ${{ secrets.NOTION_TOGGLE_BLOCK_ID }}
         run: |
           if [ -z "$NOTION_TOKEN" ] || [ -z "$DB_TRADING_HISTORY_ID" ] || [ -z "$COINRANKING_API_KEY" ]; then
             echo "Error: Required secrets are missing. Please configure NOTION_TOKEN, DB_TRADING_HISTORY_ID, and COINRANKING_API_KEY in repository secrets."
             exit 1
           fi
           node updateCoins.js
+
       - name: Save cache
         uses: actions/cache@v3
         if: always()
         with:
           path: |
             coinranking_cache.json
-            coingecko_list_cache.json          key: crypto-cache-${{ github.run_number }}
+            coingecko_list_cache.json
+          key: crypto-cache-${{ github.run_number }}
