@@ -1,0 +1,40 @@
+
+name: Run Crypto Notion Sync
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Every 5 minutes, 24/7
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run script
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN || '' }}
+          DB_TRADING_HISTORY_ID: ${{ secrets.DB_TRADING_HISTORY_ID || '' }}
+          DB_ACCOUNTS_ID: ${{ secrets.DB_ACCOUNTS_ID || '' }}
+          DB_DAILY_TRACKER_ID: ${{ secrets.DB_DAILY_TRACKER_ID || '' }}
+          DB_WEEKLY_TRACKER_ID: ${{ secrets.DB_WEEKLY_TRACKER_ID || '' }}
+          DB_MONTHLY_TRACKER_ID: ${{ secrets.DB_MONTHLY_TRACKER_ID || '' }}
+          COINRANKING_API_KEY: ${{ secrets.COINRANKING_API_KEY || '' }}
+          NOTION_TOGGLE_BLOCK_ID: ${{ secrets.NOTION_TOGGLE_BLOCK_ID || '' }}
+        run: |
+          if [ -z "$NOTION_TOKEN" ] || [ -z "$DB_TRADING_HISTORY_ID" ] || [ -z "$COINRANKING_API_KEY" ]; then
+            echo "Error: Required secrets are missing. Please configure NOTION_TOKEN, DB_TRADING_HISTORY_ID, and COINRANKING_API_KEY in repository secrets."
+            exit 1
+          fi
+          node updateCoins.js 
