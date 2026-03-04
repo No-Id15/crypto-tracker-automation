@@ -14,13 +14,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Get date
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
       - name: Restore cache
         uses: actions/cache@v3
         with:
           path: |
             coinranking_cache.json
             coingecko_list_cache.json
-          key: crypto-cache-${{ github.run_number }}
+          key: crypto-cache-${{ steps.date.outputs.date }}
           restore-keys: |
             crypto-cache-
 
@@ -56,4 +60,4 @@ jobs:
           path: |
             coinranking_cache.json
             coingecko_list_cache.json
-          key: crypto-cache-${{ github.run_number }}
+          key: crypto-cache-${{ steps.date.outputs.date }}
