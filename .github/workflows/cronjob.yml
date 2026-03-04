@@ -40,7 +40,6 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           DB_TRADING_HISTORY_ID: ${{ secrets.DB_TRADING_HISTORY_ID }}
-          DB_ACCOUNTS_ID: ${{ secrets.DB_ACCOUNTS_ID }}
           DB_DAILY_TRACKER_ID: ${{ secrets.DB_DAILY_TRACKER_ID }}
           DB_WEEKLY_TRACKER_ID: ${{ secrets.DB_WEEKLY_TRACKER_ID }}
           DB_MONTHLY_TRACKER_ID: ${{ secrets.DB_MONTHLY_TRACKER_ID }}
