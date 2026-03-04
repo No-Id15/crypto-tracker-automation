@@ -196,7 +196,7 @@ async function loadSymbolToIdMap() {
       const cached = JSON.parse(fs.readFileSync(GECKO_LIST_CACHE_PATH, "utf-8"));
       if (Date.now() - cached.timestamp < GECKO_LIST_TTL_MS) {
         console.log("✅ Using cached CoinGecko list (valid for 24h)");
-        return { ...knownSymbols, ...cached.symbolMap };
+        return { ...cached.symbolMap, ...knownSymbols }; // knownSymbols last = manual overrides take priority
       }
     }
   } catch (err) {
@@ -222,7 +222,7 @@ async function loadSymbolToIdMap() {
       console.error("⚠️ Failed to save CoinGecko cache:", err.message);
     }
 
-    return { ...knownSymbols, ...symbolMap };
+    return { ...symbolMap, ...knownSymbols }; // knownSymbols last = manual overrides take priority
   } catch (err) {
     console.error("❌ Failed to load CoinGecko list:", err.message);
     return knownSymbols;
