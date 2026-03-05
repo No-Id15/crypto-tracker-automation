@@ -783,10 +783,15 @@ async function updateRealizedBalances(pages) {
 
   try {
     // Filter non-trading positions from already-fetched pages (no extra query!)
-    const nonTradingPositions = pages.filter(page =>
-      page.properties["Active"]?.formula?.boolean === true &&
-      page.properties["Trading"]?.formula?.boolean === false
-    );
+    // Also include blank pages (no ticker) so pre-planned trade templates get realized balance filled
+    const nonTradingPositions = pages.filter(page => {
+      const hasTicker = !!getTicker(page);
+      if (!hasTicker) return true; // Always include blank pages
+      return (
+        page.properties["Active"]?.formula?.boolean === true &&
+        page.properties["Trading"]?.formula?.boolean === false
+      );
+    });
 
     console.log(`🔄 Processing ${nonTradingPositions.length} non-trading positions for realized balance...`);
 
@@ -818,8 +823,7 @@ async function updateRealizedBalances(pages) {
     const updateTasks = [];
 
     for (const trade of nonTradingPositions) {
-      const ticker = getTicker(trade);
-      if (!ticker) continue;
+      const ticker = getTicker(trade) || `(blank:${trade.id.slice(0, 8)})`;
 
       const accountRelation = trade.properties["Trading Account"]?.relation || [];
 
